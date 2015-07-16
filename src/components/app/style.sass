@@ -1,6 +1,12 @@
-@import "styles/vars"
+/* Component-specific styles
+ *
+ * Import other files if needed
+ *    @import styles/vars
+ *    @import styles/mixins
+ */
 
-.App
-   width: $width
-   height: $height
-   background: $bgColor
+@import styles/vars
+
+.AppName
+   color: $bgColor
+   background: invert($bgColor)

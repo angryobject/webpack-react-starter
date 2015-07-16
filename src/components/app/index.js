@@ -13,7 +13,7 @@ export default class App extends React.Component {
 
    render() {
       return <div className="App">
-         {this.state.name} component has rendered
+         <span className="AppName">{this.state.name}</span> component has rendered
       </div>;
    }
 }
