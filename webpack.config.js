@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 function config(opts) {
    opts = opts || {};
@@ -65,7 +66,22 @@ function config(opts) {
          }),
 
          // extract all css into one file
-         new ExtractTextPlugin('[name].css', { allChunks: true, disable: DEV ? true : false })
+         new ExtractTextPlugin('[name].css', { allChunks: true, disable: DEV ? true : false }),
+
+         new HtmlWebpackPlugin({
+            template: 'src/index.html',
+            inject: true,
+            hash: true,
+            minify: {
+               collapseWhitespace: true,
+               minifyCSS: true,
+               minifyJS: true
+            },
+
+            title: 'My App',
+            description: 'You wouldn\'t believe',
+            lang: 'en'
+         })
       ].concat(DEV ? [
          new webpack.HotModuleReplacementPlugin(),
          new webpack.NoErrorsPlugin()
