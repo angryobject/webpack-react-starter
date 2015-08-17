@@ -164,6 +164,12 @@ function config(opts) {
             {
                test: /\.json$/,
                loader: 'file?name=json/[hash].[ext]'
+            },
+
+            // load all *.fl.* files with file loader
+            {
+               test: /\.fl\..*$/,
+               loader: 'file?name=assets/[name].[ext]'
             }
          ]
       },
