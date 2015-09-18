@@ -54,7 +54,7 @@ function config(opts) {
 
          // dependency injection
          new webpack.DefinePlugin({
-            // DEBUG: true
+            DEBUG: DEV
          }),
 
          // auto load modules
