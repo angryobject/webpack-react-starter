@@ -28,5 +28,10 @@
       "react/react-in-jsx-scope": 2,
       "react/self-closing-comp": 2,
    },
-   "globals": {}
+   "globals": {
+      "DEBUG": true,
+      "React": true,
+      "_": true,
+      "cx": true
+   }
 }
