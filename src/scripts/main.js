@@ -13,7 +13,7 @@ function main() {
 }
 
 function renderApp() {
-   ReactDOM.render(<App />, document.getElementById('app'));
+   ReactDOM.render(<App />, document.getElementById('main'));
 }
 
 main();

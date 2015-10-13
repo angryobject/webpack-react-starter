@@ -6,13 +6,9 @@ export default React.createClass({
       };
    },
 
-   componentDidMount() {
-      document.documentElement.classList.add('appIsMounted');
-   },
-
    render() {
       return <div className="App">
-         <span className="AppName">{this.state.name}</span> component has rendered
+         <span className="AppName">{this.state.name}</span> has rendered
       </div>;
    }
 
