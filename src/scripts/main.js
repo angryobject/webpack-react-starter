@@ -5,7 +5,7 @@ import 'styles/main.sass';
 // import polyfills if needed
 import 'babel/polyfill';
 
-import React from 'react';
+
 import App from 'components/app';
 
 function main() {
