@@ -1,6 +1,9 @@
+/*eslint object-shorthand: 0*/
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+
 
 function config(opts) {
    opts = opts || {};
@@ -12,28 +15,28 @@ function config(opts) {
    return {
 
       // src directory
-      context: __dirname + '/src',
+      context: path.resolve() + '/src',
 
 
       entry: {
          main: (DEV ? [
             'webpack-dev-server/client?http://localhost:9000',
             'webpack/hot/only-dev-server'
-         ] : []).concat('./scripts/main.js'),
+         ] : []).concat('./scripts/main.js')
 
          // other entry points
-         // a: ['./scripts/a.js']
+         // , a: ['./scripts/a.js']
 
          // or separate entry point for vendor modules
          // (not shure i got it right & it'll work though)
-         // vendor: ['classnames', 'lodash', 'react'],
+         // , vendor: ['classnames', 'lodash', 'react']
 
       },
 
 
       output: {
          // output dir
-         path: __dirname + '/dist',
+         path: path.resolve() + '/dist',
 
          // output chunk name
          filename: '[name].js',
@@ -43,14 +46,6 @@ function config(opts) {
 
 
       plugins: [
-         // extract common chunks (if multiple entry points) to init.js
-         // new webpack.optimize.CommonsChunkPlugin('init.js')
-
-         // or extract vendor chunks to separate file
-         // new webpack.optimize.CommonsChunkPlugin(
-         //    'vendor', /* chunkName= */
-         //    'vendor.bundle.js' /* filename= */
-         // ),
 
          // dependency injection
          new webpack.DefinePlugin({
@@ -60,7 +55,7 @@ function config(opts) {
          // auto load modules
          new webpack.ProvidePlugin({
             // whenever _ is used, require('lodash') automatically and assign to _
-            React: 'react',
+            React: 'react/addons',
             _: 'lodash',
             cx: 'classnames'
          }),
@@ -68,6 +63,7 @@ function config(opts) {
          // extract all css into one file
          new ExtractTextPlugin('[name].css', { allChunks: true, disable: DEV ? true : false }),
 
+         // generate html
          new HtmlWebpackPlugin({
             template: 'src/index.html',
             inject: true,
@@ -82,6 +78,15 @@ function config(opts) {
             description: 'You wouldn\'t believe',
             lang: 'en'
          })
+
+         // extract common chunks (if multiple entry points) to init.js
+         // , new webpack.optimize.CommonsChunkPlugin('init.js')
+
+         // or extract vendor chunks to separate file
+         // , new webpack.optimize.CommonsChunkPlugin(
+         //    'vendor', /* chunkName= */
+         //    'vendor.bundle.js' /* filename= */
+         // ),
       ].concat(DEV ? [
          new webpack.HotModuleReplacementPlugin(),
          new webpack.NoErrorsPlugin()
@@ -116,10 +121,10 @@ function config(opts) {
                test: /\.sass$/,
                loader: ExtractTextPlugin.extract(
                   'style',
-                  'css?sourceMap!postcss?sourceMap!sass?indentedSyntax&sourceMap&' +
-                     'includePaths[]=' + __dirname + '/node_modules&' +
-                     'includePaths[]=' + __dirname + '/bower_components&' +
-                     'includePaths[]=' + __dirname + '/src'
+                  'css?sourceMap!postcss?sourceMap!sass?indentedSyntax&sourceMap' +
+                     '&includePaths[]=' + path.resolve('node_modules') +
+                     '&includePaths[]=' + path.resolve('bower_components') +
+                     '&includePaths[]=' + path.resolve('src')
                )
             },
 
@@ -186,7 +191,7 @@ function config(opts) {
 
 
       debug: DEV ? true : false,
-      devtool: DEV ? 'eval' : void 0,
+      devtool: DEV ? 'eval' : void 0
    };
 }
 

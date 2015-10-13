@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const webpack = require("webpack");
+const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
 const WebpackDevServer = require('webpack-dev-server');
 const $ = require('gulp-load-plugins')();
@@ -17,23 +17,27 @@ gulp.task('build', ['webpack'], function () {
 
 gulp.task('webpack', function(cb) {
     webpack(webpackConfig(), function(err, stats) {
-        if(err) throw new $.util.PluginError("webpack", err);
+        if (err) {
+           throw new $.util.PluginError('webpack', err);
+        }
 
-        $.util.log("[webpack]", stats.toString());
+        $.util.log('[webpack]', stats.toString());
         cb();
     });
 });
 
 gulp.task('serve', function() {
-   const compiler = webpack(webpackConfig({dev:true}));
+   const compiler = webpack(webpackConfig({dev: true}));
 
    new WebpackDevServer(compiler, {
       contentBase: './src',
       hot: true,
       historyApiFallback: true
    }).listen(9000, 'localhost', function(err) {
-      if(err) throw new gutil.PluginError("webpack-dev-server", err);
-      
-      $.util.log("[webpack-dev-server]", "http://localhost:9000/");
+      if(err) {
+         throw new gutil.PluginError('webpack-dev-server', err);
+      }
+
+      $.util.log('[webpack-dev-server]', 'http://localhost:9000/');
    });
 });
