@@ -55,7 +55,8 @@ function config(opts) {
          // auto load modules
          new webpack.ProvidePlugin({
             // whenever _ is used, require('lodash') automatically and assign to _
-            React: 'react/addons',
+            React: 'react',
+            ReactDOM: 'react-dom',
             _: 'lodash',
             cx: 'classnames'
          }),

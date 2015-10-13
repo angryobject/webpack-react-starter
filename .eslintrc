@@ -31,6 +31,7 @@
    "globals": {
       "DEBUG": true,
       "React": true,
+      "ReactDOM": true,
       "_": true,
       "cx": true
    }
