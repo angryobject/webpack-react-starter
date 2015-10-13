@@ -54,11 +54,9 @@ function config(opts) {
 
          // auto load modules
          new webpack.ProvidePlugin({
-            // whenever _ is used, require('lodash') automatically and assign to _
+            // whenever React is used, add React = require('react') automatically
             React: 'react',
-            ReactDOM: 'react-dom',
-            _: 'lodash',
-            cx: 'classnames'
+            ReactDOM: 'react-dom'
          }),
 
          // extract all css into one file
