@@ -179,7 +179,10 @@ function config(opts) {
 
 
       postcss: function () {
-         return [require('autoprefixer-core'), require('csswring')];
+         const autoprefixer = require('autoprefixer');
+         const csswring = require('csswring');
+
+         return [autoprefixer({ browsers: ['> 1%', 'ie > 8'] }), csswring];
       },
 
 
