@@ -1,8 +1,8 @@
 const gulp = require('gulp');
+const $ = require('gulp-load-plugins')();
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
 const WebpackDevServer = require('webpack-dev-server');
-const $ = require('gulp-load-plugins')();
 
 gulp.task('default', ['clean'], function () {
    gulp.start('build');
@@ -35,7 +35,7 @@ gulp.task('serve', function() {
       historyApiFallback: true
    }).listen(9000, 'localhost', function(err) {
       if(err) {
-         throw new gutil.PluginError('webpack-dev-server', err);
+         throw new $.util.PluginError('webpack-dev-server', err);
       }
 
       $.util.log('[webpack-dev-server]', 'http://localhost:9000/');
