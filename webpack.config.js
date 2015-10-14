@@ -1,4 +1,3 @@
-/*eslint object-shorthand: 0*/
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -9,7 +8,7 @@ function config(opts) {
    opts = opts || {};
 
 
-   const DEV = opts.dev;
+   const DEV = !!opts.dev;
 
 
    return {
@@ -60,7 +59,7 @@ function config(opts) {
          }),
 
          // extract all css into one file
-         new ExtractTextPlugin('[name].css', { allChunks: true, disable: DEV ? true : false }),
+         new ExtractTextPlugin('[name].css', { allChunks: true, disable: DEV }),
 
          // generate html
          new HtmlWebpackPlugin({
@@ -189,7 +188,7 @@ function config(opts) {
       },
 
 
-      debug: DEV ? true : false,
+      debug: DEV,
       devtool: DEV ? 'eval' : void 0
    };
 }

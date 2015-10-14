@@ -8,12 +8,12 @@ import 'babel/polyfill';
 
 import App from 'components/app';
 
-function main() {
-   renderApp();
-}
-
 function renderApp() {
    ReactDOM.render(<App />, document.getElementById('main'));
+}
+
+function main() {
+   renderApp();
 }
 
 main();

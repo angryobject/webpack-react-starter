@@ -15,26 +15,26 @@ gulp.task('build', ['webpack'], function () {
       .pipe($.size({title: 'build', gzip: true}));
 });
 
-gulp.task('webpack', function(cb) {
-    webpack(webpackConfig(), function(err, stats) {
-        if (err) {
-           throw new $.util.PluginError('webpack', err);
-        }
+gulp.task('webpack', function (cb) {
+   webpack(webpackConfig(), function (err, stats) {
+      if (err) {
+         throw new $.util.PluginError('webpack', err);
+      }
 
-        $.util.log('[webpack]', stats.toString());
-        cb();
-    });
+      $.util.log('[webpack]', stats.toString());
+      cb();
+   });
 });
 
-gulp.task('serve', function() {
+gulp.task('serve', function () {
    const compiler = webpack(webpackConfig({dev: true}));
 
    new WebpackDevServer(compiler, {
       contentBase: './src',
       hot: true,
       historyApiFallback: true
-   }).listen(9000, 'localhost', function(err) {
-      if(err) {
+   }).listen(9000, 'localhost', function (err) {
+      if (err) {
          throw new $.util.PluginError('webpack-dev-server', err);
       }
 
