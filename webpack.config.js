@@ -163,16 +163,12 @@ function config(opts) {
             },
 
             // json
+            // used for dynamically loading json files (e.g via fetch)
+            // if you need an embedded json parsed object, use json-loader
             // @TODO: minify json files
             {
                test: /\.json$/,
                loader: 'file?name=json/[hash].[ext]'
-            },
-
-            // load all *.fl.* files with file loader
-            {
-               test: /\.fl\..*$/,
-               loader: 'file?name=assets/[name].[ext]'
             }
          ]
       },
