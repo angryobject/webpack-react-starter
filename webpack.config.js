@@ -48,7 +48,7 @@ function config(opts) {
 
          // dependency injection
          new webpack.DefinePlugin({
-            DEBUG: DEV
+            'process.env.NODE_ENV': DEV ? '"development"' : '"production"'
          }),
 
          // auto load modules

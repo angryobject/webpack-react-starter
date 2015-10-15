@@ -14,7 +14,9 @@ function renderApp() {
 
 function appDidMount() {
    /*eslint no-console: 0*/
-   if (DEBUG) { console.log('App is mounted'); }
+   if (process.env.NODE_ENV !== 'production') {
+      console.log('%cApp is mounted', 'font-size: large');
+   }
 }
 
 function main() {
