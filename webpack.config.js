@@ -38,7 +38,7 @@ function config(opts) {
          path: path.resolve() + '/dist',
 
          // output chunk name
-         filename: '[name].js',
+         filename: '[hash].js',
 
          publicPath: DEV ? 'http://localhost:9000/' : void 0
       },
@@ -59,13 +59,13 @@ function config(opts) {
          }),
 
          // extract all css into one file
-         new ExtractTextPlugin('[name].css', { allChunks: true, disable: DEV }),
+         new ExtractTextPlugin('[hash].css', { allChunks: true, disable: DEV }),
 
          // generate html
          new HtmlWebpackPlugin({
             template: 'src/index.html',
             inject: true,
-            hash: true,
+            hash: false,
             minify: {
                collapseWhitespace: true,
                minifyCSS: true,
