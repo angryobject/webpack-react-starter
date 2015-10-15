@@ -13,10 +13,11 @@ function renderApp() {
 }
 
 function appDidMount() {
-   /*eslint no-console: 0*/
+   /* eslint-disable no-console */
    if (process.env.NODE_ENV !== 'production') {
       console.log('%cApp is mounted', 'font-size: large');
    }
+   /* eslint-enable no-console */
 }
 
 function main() {
