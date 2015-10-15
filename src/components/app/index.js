@@ -1,15 +1,24 @@
-export default React.createClass({
+import { connect } from 'react-redux';
+import { changeExclamation } from 'actions';
 
-   getInitialState() {
-      return {
-         name: 'App'
-      };
-   },
+
+const App = React.createClass({
 
    render() {
-      return <div className={styles.App}>
-         <span className={styles.AppName}>{this.state.name}</span> has rendered
-      </div>;
+      const { dispatch, exclamation } = this.props;
+
+      return (
+         <div className={styles.App}
+            onClick={() => dispatch(changeExclamation(exclamation))}
+         >
+
+            <span className={styles.AppName}>App</span>
+            {` has rendered. ${this.props.exclamation}`}
+
+         </div>
+      );
    }
 
 });
+
+export default connect(state => state)(App);
