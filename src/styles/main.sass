@@ -8,11 +8,19 @@
 // Import fonts
 @import fonts
 
+/* For explanation of :global and :local scopes
+ * see https://github.com/webpack/css-loader#local-scope
+ *
+ * The default scope is local if css-modules is enabled (css-loader?modules)
+ * and global otherwise
+ */
 
-*
-   box-sizing: border-box
+:global
+
+   *
+      box-sizing: border-box
 
 
-html, body, #main
-   min-height: 100%
-   height: 100%
+   html, body, #main
+      min-height: 100%
+      height: 100%

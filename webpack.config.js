@@ -102,7 +102,7 @@ function config(opts) {
             // (i.e. in every index.js inside components directory)
             {
                test: /\/components\/.+index\.js$/,
-               loader: 'baggage?style.sass'
+               loader: 'baggage?style.sass=styles'
             }
          ],
 
@@ -119,7 +119,9 @@ function config(opts) {
                test: /\.sass$/,
                loader: ExtractTextPlugin.extract(
                   'style',
-                  'css?sourceMap!postcss?sourceMap!sass?indentedSyntax&sourceMap' +
+                  // if you don't want CSS Modules, i.e. local scoped css by default,
+                  // remove `modules` query param
+                  'css?modules&sourceMap!postcss?sourceMap!sass?indentedSyntax&sourceMap' +
                      '&includePaths[]=' + path.resolve('node_modules') +
                      '&includePaths[]=' + path.resolve('bower_components') +
                      '&includePaths[]=' + path.resolve('src')

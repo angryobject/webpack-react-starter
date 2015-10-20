@@ -7,8 +7,8 @@ export default React.createClass({
    },
 
    render() {
-      return <div className="App">
-         <span className="AppName">{this.state.name}</span> has rendered
+      return <div className={styles.App}>
+         <span className={styles.AppName}>{this.state.name}</span> has rendered
       </div>;
    }
 
