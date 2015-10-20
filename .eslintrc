@@ -28,7 +28,6 @@
       "linebreak-style": 1
    },
    "globals": {
-      "DEBUG": true,
       "React": true,
       "ReactDOM": true
    }
