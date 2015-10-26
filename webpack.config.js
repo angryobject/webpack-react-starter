@@ -73,7 +73,7 @@ function config(opts) {
             },
 
             title: 'My App',
-            description: 'You wouldn\'t believe',
+            description: '',
             lang: 'en'
          })
 
