@@ -32,4 +32,4 @@ gulp
 
 * Add a flux implementation
 * Add tests
-* Create yeoman generators for easy scaffolding
+* ~~Create yeoman generators for easy scaffolding~~ ([https://github.com/angryobject/generator-webpack](https://github.com/angryobject/generator-webpack))
