@@ -4,6 +4,7 @@ A Webpack starter template. Includes:
 
 * Babel
 * React and jsx
+* Redux
 * Sass stylesheets
 * CSS Modules
 * PostCSS + Autoprefixer
